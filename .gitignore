@@ -1,3 +1,5 @@
 .idea
-.babelrc
 node_modules
+*.log
+dist/bundle.js
+dist/bundle.js.map

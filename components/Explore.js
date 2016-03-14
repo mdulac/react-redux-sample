@@ -1,6 +1,25 @@
 import React, { Component, PropTypes } from 'react'
+import RaisedButton from 'material-ui/lib/raised-button';
+import Dialog from 'material-ui/lib/dialog';
+import {deepOrange500} from 'material-ui/lib/styles/colors';
+import FlatButton from 'material-ui/lib/flat-button';
+import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
 
 const GITHUB_REPO = 'https://github.com/reactjs/redux';
+
+const styles = {
+    container: {
+        textAlign: 'center',
+        paddingTop: 200
+    }
+};
+
+const muiTheme = getMuiTheme({
+    palette: {
+        accent1Color: deepOrange500
+    }
+});
 
 export default class Explore extends Component {
     constructor(props) {
@@ -38,22 +57,16 @@ export default class Explore extends Component {
 
     render() {
         return (
-            <div>
-                <p>Type a username or repo full name and hit 'Go':</p>
-                <input size="45"
-                       ref="input"
-                       defaultValue={this.props.value}
-                       onKeyUp={this.handleKeyUp}/>
-                <button onClick={this.handleGoClick}>
-                    Go!
-                </button>
-                <p>
-                    Code on <a href={GITHUB_REPO} target="_blank">Github</a>.
-                </p>
-                <p>
-                    Move the DevTools with Ctrl+W or hide them with Ctrl+H.
-                </p>
-            </div>
+            <MuiThemeProvider muiTheme={muiTheme}>
+                <div style={styles.container}>
+                    <h1>material-ui</h1>
+                    <h2>example project</h2>
+                    <RaisedButton
+                        label="Super Secret Password"
+                        primary={true}
+                    />
+                </div>
+            </MuiThemeProvider>
         )
     }
 }

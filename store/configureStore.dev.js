@@ -20,8 +20,8 @@ export default function configureStore(initialState) {
         module.hot.accept('../reducers', () => {
             const nextRootReducer = require('../reducers').default();
             store.replaceReducer(nextRootReducer)
-        })
+        });
     }
 
-    return store
+    return store;
 }
