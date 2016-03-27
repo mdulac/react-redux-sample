@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "export NODE_ENV=development && webpack -d --config webpack.development.config.js && node server.js && json-server --watch db.json --routes db.routes.json --port 3004",
     "prod": "export NODE_ENV=production && webpack -p --config webpack.production.config.js && node server.js",
-    "start": "webpack -p --config webpack.production.config.js && node server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
