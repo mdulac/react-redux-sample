@@ -11,7 +11,7 @@ module.exports = _.merge(
         middleware: {
             protocol: "http",
             host: "localhost",
-            port: 3000,
+            port: 8080,
             context: "/api/"
         }
     },
