@@ -4,6 +4,9 @@ import paginate from './paginate'
 import { routerReducer as routing } from 'react-router-redux'
 import { combineReducers } from 'redux'
 
+import todos from './todos'
+import visibilityFilter from './visibilityFilter'
+
 // Updates an entity cache in response to any action with response.entities.
 function entities(state = {users: {}, repos: {}}, action) {
     if (action.response && action.response.entities) {
@@ -50,7 +53,9 @@ const rootReducer = combineReducers({
     entities,
     pagination,
     errorMessage,
-    routing
+    routing,
+    todos,
+    visibilityFilter
 });
 
 export default rootReducer

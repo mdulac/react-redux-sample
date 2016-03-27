@@ -1,8 +1,8 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
-import Explore from '../components/Explore'
-import { resetErrorMessage } from '../actions'
+import React, {Component, PropTypes} from "react";
+import {connect} from "react-redux";
+import {browserHistory} from "react-router";
+import Appli from "../components/App";
+import {resetErrorMessage} from "../actions";
 
 class App extends Component {
     constructor(props) {
@@ -21,7 +21,7 @@ class App extends Component {
     }
 
     renderErrorMessage() {
-        const { errorMessage } = this.props;
+        const {errorMessage} = this.props;
         if (!errorMessage) {
             return null
         }
@@ -39,11 +39,10 @@ class App extends Component {
     }
 
     render() {
-        const { children, inputValue } = this.props;
+        const {children, inputValue} = this.props;
         return (
             <div>
-                <Explore value={inputValue}
-                         onChange={this.handleChange}/>
+                <Appli />
                 <hr />
                 {this.renderErrorMessage()}
                 {children}
