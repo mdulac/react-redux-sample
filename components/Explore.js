@@ -1,21 +1,6 @@
 import React, {Component, PropTypes} from "react";
 import RaisedButton from "material-ui/lib/raised-button";
-import {deepOrange500} from "material-ui/lib/styles/colors";
-import getMuiTheme from "material-ui/lib/styles/getMuiTheme";
-import MuiThemeProvider from "material-ui/lib/MuiThemeProvider";
-
-const styles = {
-    container: {
-        textAlign: 'center',
-        paddingTop: 200
-    }
-};
-
-const muiTheme = getMuiTheme({
-    palette: {
-        accent1Color: deepOrange500
-    }
-});
+import TextField from "material-ui/lib/text-field";
 
 export default class Explore extends Component {
     constructor(props) {
@@ -24,16 +9,20 @@ export default class Explore extends Component {
 
     render() {
         return (
-            <MuiThemeProvider muiTheme={muiTheme}>
-                <div style={styles.container}>
-                    <h1>Material-ui</h1>
-                    <h2>Example project with React and Redux</h2>
-                    <RaisedButton
-                        label="Click on me"
-                        primary={true}
-                    />
-                </div>
-            </MuiThemeProvider>
+            <div>
+                <h1>Material-ui</h1>
+                <h2>Example project with React and Redux</h2>
+                <TextField
+                    hintText="Task"
+                />
+
+                <br/>
+
+                <RaisedButton
+                    label="Add"
+                    primary={true}
+                />
+            </div>
         )
     }
 }
