@@ -1,5 +1,12 @@
 const winston = require('winston');
 const conf = require('../conf/conf');
+const fs = require('fs');
+
+const logDir = 'logs';
+
+if (!fs.existsSync(logDir)) {
+    fs.mkdirSync(logDir);
+}
 
 var logger = new winston.Logger({
     level: conf.application.log.level,
@@ -8,7 +15,7 @@ var logger = new winston.Logger({
         new (winston.transports.File)(
             {
                 name: 'logger',
-                filename: 'logs/server.log'
+                filename: './' + logDir + '/server.log'
             }
         )
     ]
