@@ -20,8 +20,6 @@ const muiTheme = getMuiTheme({
 export default class Explore extends Component {
     constructor(props) {
         super(props);
-        this.handleKeyUp = this.handleKeyUp.bind(this);
-        this.handleGoClick = this.handleGoClick.bind(this)
     }
 
     render() {
