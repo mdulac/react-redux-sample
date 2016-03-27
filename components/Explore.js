@@ -1,12 +1,8 @@
-import React, { Component, PropTypes } from 'react'
-import RaisedButton from 'material-ui/lib/raised-button';
-import Dialog from 'material-ui/lib/dialog';
-import {deepOrange500} from 'material-ui/lib/styles/colors';
-import FlatButton from 'material-ui/lib/flat-button';
-import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
-
-const GITHUB_REPO = 'https://github.com/reactjs/redux';
+import React, {Component, PropTypes} from "react";
+import RaisedButton from "material-ui/lib/raised-button";
+import {deepOrange500} from "material-ui/lib/styles/colors";
+import getMuiTheme from "material-ui/lib/styles/getMuiTheme";
+import MuiThemeProvider from "material-ui/lib/MuiThemeProvider";
 
 const styles = {
     container: {
@@ -28,41 +24,14 @@ export default class Explore extends Component {
         this.handleGoClick = this.handleGoClick.bind(this)
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.value !== this.props.value) {
-            this.setInputValue(nextProps.value)
-        }
-    }
-
-    getInputValue() {
-        return this.refs.input.value
-    }
-
-    setInputValue(val) {
-        // Generally mutating DOM is a bad idea in React components,
-        // but doing this for a single uncontrolled field is less fuss
-        // than making it controlled and maintaining a state for it.
-        this.refs.input.value = val
-    }
-
-    handleKeyUp(e) {
-        if (e.keyCode === 13) {
-            this.handleGoClick()
-        }
-    }
-
-    handleGoClick() {
-        this.props.onChange(this.getInputValue())
-    }
-
     render() {
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
                 <div style={styles.container}>
-                    <h1>material-ui</h1>
-                    <h2>example project</h2>
+                    <h1>Material-ui</h1>
+                    <h2>Example project with React and Redux</h2>
                     <RaisedButton
-                        label="Super Secret Password"
+                        label="Click on me"
                         primary={true}
                     />
                 </div>

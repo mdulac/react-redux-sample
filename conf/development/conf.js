@@ -1,7 +1,7 @@
 module.exports = {
 
     application: {
-        mode: "development",
+        env: "development",
         log: {
             level: "debug"
         }

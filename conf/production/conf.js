@@ -1,7 +1,7 @@
 module.exports = {
 
     application: {
-        mode: "production",
+        env: "production",
         log: {
             level: "info"
         }

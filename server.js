@@ -1,18 +1,11 @@
 const webpack = require('webpack');
 const proxyMiddleware = require('http-proxy-middleware');
 const express = require('express');
-const winston = require('winston');
 
 const appConf = require('./conf/conf');
-const webpackConfig = require('./webpack.' + appConf.application.mode + '.config');
+const webpackConfig = require('./webpack.' + appConf.application.env + '.config');
 
-var logger = new winston.Logger({
-    level: appConf.application.log.level,
-    transports: [
-        new (winston.transports.Console)(),
-        new (winston.transports.File)({filename: 'server.' + appConf.application.mode + '.log'})
-    ]
-});
+const logger = require('./logger/logger');
 
 const app = new (express)();
 
@@ -29,10 +22,7 @@ const proxy = proxyMiddleware(appConf.middleware.context, options);
 
 const compiler = webpack(webpackConfig);
 
-logger.info("NODE_ENV: ", process.env.NODE_ENV);
-logger.info("BABEL_ENV: ", process.env.BABEL_ENV);
-
-if (appConf.application.mode === "development") {
+if (appConf.application.env === "development") {
     const webpackDevMiddleware = require('webpack-dev-middleware');
     const webpackHotMiddleware = require('webpack-hot-middleware');
 
@@ -53,6 +43,8 @@ app.use('/static', express.static(__dirname + '/dist'));
 app.get(/^((?!\/api).)*$/, function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
+
+logger.info(appConf);
 
 app.listen(appConf.middleware.port, function (error) {
     if (error) {

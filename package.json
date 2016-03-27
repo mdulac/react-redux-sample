@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Redux real-world example",
   "scripts": {
-    "dev": "export NODE_ENV=development && webpack -d --config webpack.development.config.js && node server.js && ./node_modules/json-server/bin/index.js --watch db.json --routes db.routes.json --port 3004",
+    "dev": "export NODE_ENV=development && webpack -d --config webpack.development.config.js && node server.js && json-server --watch db.json --routes db.routes.json --port 3004",
     "prod": "export NODE_ENV=production && webpack -p --config webpack.production.config.js && node server.js"
   },
   "repository": {
