@@ -19,13 +19,13 @@ let AddTodo = ({dispatch}) => {
         input.value = ''
       }}>
                 <TextField
-                    hintText="Task"
+                    floatingLabelText="Task name"
                     ref={node => { input = node }}
                 />
                 <br/>
                 <RaisedButton
                     type="submit"
-                    label="Add"
+                    label="Add task"
                     primary={true}
                 />
 
