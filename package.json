@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Redux real-world example",
   "scripts": {
-    "dev": "export NODE_ENV=development && webpack -d --config webpack.development.config.js && node server.js && json-server --watch db.json --routes db.routes.json --port 3004",
+    "dev": "export NODE_ENV=development && webpack -d --config webpack.development.config.js && node server.js & json-server --watch db.json --port 3004",
     "prod": "export NODE_ENV=production && webpack -p --config webpack.production.config.js && node server.js",
     "start": "webpack --config webpack.production.config.js | node server.js"
   },
@@ -21,10 +21,13 @@
   "homepage": "http://redux.js.org",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
+    "express": "^4.13.3",
+    "http-proxy-middleware": "^0.11.0",
     "humps": "^0.6.0",
     "isomorphic-fetch": "^2.1.1",
     "lodash": "^4.0.0",
-    "material-ui": "^0.15.0-alpha.1",
+    "material-ui": "^0.15.0-alpha.2",
+    "node-uuid": "^1.4.7",
     "normalizr": "^2.0.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
@@ -34,11 +37,9 @@
     "react-tap-event-plugin": "^0.2.1",
     "redux": "^3.2.1",
     "redux-logger": "^2.4.0",
+    "redux-thunk": "^1.0.3",
     "webpack": "^1.9.11",
-    "winston": "^2.2.0",
-    "express": "^4.13.3",
-    "http-proxy-middleware": "^0.11.0",
-    "redux-thunk": "^1.0.3"
+    "winston": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.3.15",
