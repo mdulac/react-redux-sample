@@ -16,7 +16,10 @@ const TodoList = ({todos, onTodoClick}) => (
                         <TableRowColumn>{todo.id}</TableRowColumn>
                         <TableRowColumn>{todo.text}</TableRowColumn>
                         <TableRowColumn>
-                            <Toggle defaultToggled={todo.completed}/>
+                            <Toggle
+                                defaultToggled={todo.completed}
+                                onToggle={() => onTodoClick(todo.id)}
+                            />
                         </TableRowColumn>
                     </TableRow>
                 )}
