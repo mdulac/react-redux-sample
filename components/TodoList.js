@@ -3,12 +3,10 @@ import Table from "material-ui/lib/table/table";
 import TableRow from "material-ui/lib/table/table-row";
 import TableRowColumn from "material-ui/lib/table/table-row-column";
 import TableBody from "material-ui/lib/table/table-body";
+import Toggle from "material-ui/lib/toggle";
 
 const TodoList = ({todos, onTodoClick}) => (
-        <Table multiSelectable={true}
-               onCellClick={(id) => {
-                    onTodoClick(id);
-               }}>
+        <Table selectable={false}>
             <TableBody deselectOnClickaway={false}
                        showRowHover={true}>
                 {todos.map(todo =>
@@ -17,6 +15,9 @@ const TodoList = ({todos, onTodoClick}) => (
                         selected={todo.completed}>
                         <TableRowColumn>{todo.id}</TableRowColumn>
                         <TableRowColumn>{todo.text}</TableRowColumn>
+                        <TableRowColumn>
+                            <Toggle defaultToggled={todo.completed}/>
+                        </TableRowColumn>
                     </TableRow>
                 )}
             </TableBody>
