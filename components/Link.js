@@ -1,19 +1,19 @@
 import React, {PropTypes} from "react";
+import FlatButton from "material-ui/lib/flat-button";
 
 const Link = ({active, children, onClick}) => {
     if (active) {
-        return <span>{children}</span>
+        return <FlatButton label={children} primary={active}/>
     }
-
     return (
-        <a href="#"
-           onClick={e => {
+        <FlatButton
+            href="#"
+            label={children}
+            primary={active}
+            onClick={e => {
          e.preventDefault();
          onClick()
-       }}
-        >
-            {children}
-        </a>
+       }}/>
     )
 };
 
