@@ -1,6 +1,0 @@
-{
-  "/users/:user": "/users/mdulac",
-  "/users/:user/starred": "/starred",
-  "/repos/:user/:repo": "/repos/8779606",
-  "/repos/:user/:repo/stargazers": "/users/mdulac"
-}
